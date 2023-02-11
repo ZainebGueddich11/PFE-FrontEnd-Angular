@@ -1,0 +1,236 @@
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a class="simple-text logo-normal">
+        BMCAF
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/menu1' routerLinkActive='active' >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/profil-utilisateur' routerLinkActive='active'>
+              <i class="material-icons">person</i>
+              <p>Profil </p>
+            </a>
+          </li>
+          
+          <!--<li class="list-group-item " data-toggle="collapse">
+            <a  class="nav-link" routerLink='/cours' routerLinkActive='active' >
+              <i class="material-icons">content_paste</i>
+              <p>Cours</p><span class="glyphicon glyphicon-chevron-right"></span>
+            </a>-->
+            <li>
+              <a href="#demo3" class="list-group-item"  data-toggle="collapse"><i class="material-icons">
+                content_paste
+              </i><p>Cours</p>  <span class="glyphicon glyphicon-chevron-right"></span></a>
+              <div class="collapse" id="demo3">
+                <a href="#SubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                  school
+                  </span>          QHSE </a>
+                <div class="collapse list-group-submenu" id="SubMenu1">
+                  <ul>
+                    <li>
+                   <a  href="#SubSubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                      snippet_folder
+                      </span>          Généralités <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                          <ul>
+                            <li>
+                          <a  routerLink='/module1user' routerLinkActive='active' class="nav-link" ><i  class="material-icons">
+                            auto_stories
+                          </i><p>Module1</p></a></li>
+                         <li>
+                        <a routerLink='/module2user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                          auto_stories
+                        </i><p>Module2</p></a>
+                        </li>
+                      <li>
+                      <a  routerLink='/module3user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                        auto_stories
+                      </i><p>Module3</p></a>
+                      </li>
+                      <li>
+                    <a routerLink='/module4user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                      auto_stories
+                    </i><p>Module4</p></a>
+                   </li>
+                   <li>
+                  <a routerLink='/module5user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                    auto_stories
+                  </i><p>Module5</p></a>
+                 </li>
+                </ul>
+                </div>
+                <li>
+                        <a routerLink='/notes' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                          fact_check
+                          </span>          Notes</a></li>
+                          <li>
+                  <a routerLink='/badges' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                    verified_user
+                    </span>          Badges</a></li>
+                      <li>
+                        <a routerLink='/certifications' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                            card_membership
+                            </span>          Certifications</a>
+                          
+                          </li>
+                  </ul>
+                </div>
+               
+
+              </div>   
+          </li>
+          <!--<li class="nav-item ">
+            <a class="nav-link" routerLink='/opinion' routerLinkActive='active'>
+              <i class="material-icons">
+                style
+              </i>
+              <p>Remplir enquête</p>
+            </a>
+          </li>-->
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/chat-apprenant' routerLinkActive='active' >
+              <i class="material-icons">
+                question_answer
+             
+              </i>
+                <p>Chat</p>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="main-panel" >
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;" >Cours</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li style="font-weight: bold;">{{currentUser.username}}</li>  
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                  
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="/profil-utilisateur">Profil</a>
+                  <div class="dropdown-divider"></div>
+                  <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12" style="size:150px">
+              Bmcaf a pour objectif de Savoir gérer des systèmes de <strong>Management</strong>  <strong> Qualité</strong> , <strong>sécurité</strong> et <strong>environnement</strong> ou un système de Management intégré <strong>SMI</strong>.
+            </div>
+            <br>
+            <br>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">looks_one</i>
+                  </div>
+                  <p class="card-category">Module 1</p>
+                  <br>
+                  <br>
+                  <div style="text-align:center;color:black;text-transform: initial;"><a routerLink='/module1user' routerLinkActive='active'><strong>MOOC RMQHSE</strong></a></div>
+                  <div style="color: white;">aaaa</div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:75px">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">looks_two</i>
+                  </div>
+                  <p class="card-category">Module 2</p>
+                  <br>
+                  <br>
+                  <div style="text-align:center;color:black;text-transform: initial;"><a routerLink='/module2user' routerLinkActive='active'><strong>LES EXIGENCES DE LA NORME ISO 9001</strong></a></div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:75px">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">looks_3</i>
+                  </div>
+                  <p class="card-category">Module 3</p>
+                  <br>
+                  <br>
+                  <div style="text-align:center;color:black;text-transform: initial;"><a routerLink='/module3user' routerLinkActive='active'><strong>LES EXIGENCES DE LA NORME ISO 14001</strong></a></div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:150px">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">looks_4</i>
+                  </div>
+                  <p class="card-category">Module 4</p>
+                  <br>
+                  <br>
+                  <div style="text-align:center;color:black;text-transform: initial;"><a routerLink='/module4user' routerLinkActive='active'><strong>LES EXIGENCES DE LA NORME ISO 45001</strong></a></div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left:75px">
+              <div class="card card-stats">
+                <div class="card-header card-header-failed card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">looks_5</i>
+                  </div>
+                  <p class="card-category">Module 5</p>
+                  <br>
+                  <br>
+                  <div style="text-align:center;color:black;text-transform: initial;"><a routerLink='/module5user' routerLinkActive='active'><strong>TECHNIQUES D'AUDIT SELON LA NORME ISO 19011</strong></a></div>
+                </div>
+                <hr>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </div>
+    </div>
+    </body> 
+   

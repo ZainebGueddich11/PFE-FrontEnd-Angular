@@ -1,0 +1,86 @@
+<form [formGroup]="formGroup"  (submit)="onSubmit()">
+   <!--<div>
+        <img src="../../assets/img/time.jpg" class="jpg" alt="clock" style="height:130px; width:170px; margin-left:500px">
+    </div>--> 
+    <div>
+        <p class="text" style="margin-left: 500px;"> <span class="material-icons">
+            av_timer
+            </span> {{timeLeft}}  Minutes restantes...</p> 
+
+    </div>
+    <div>            <h4 style="margin-top:20px;margin-left:200px;color:rgb(184, 31, 31)">Ceci est un QCM. Une seule réponse est exacte</h4>
+    </div>
+    <!--<div *ngIf="isSuccessful1;then delete"></div>   -->
+    <ng-template #timee>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left"> Votre score est :</h4>
+         
+        </div>
+        <div class="modal-body" >
+          <div  *ngIf="isSuccessful1">
+         <h4>  {{score}} / {{note}}</h4>
+          </div>
+          <button class="btn " style="margin-left:300px ;background-color:brown;" (click)="retour2()" >close</button>
+
+        </div>
+      </ng-template>
+    <mat-horizontal-stepper [linear]="true" formArrayName="form" class="col-md-8" style="margin-left: 200px;">
+       
+        <mat-step [formGroupName]="i" *ngFor="let customerGroup of getArrayControls(); let i = index" >
+
+            <ng-template matStepLabel>Step {{i + 1}}</ng-template>
+
+            <p>{{i+1}} .{{examen.questionschemas[i].question}}</p>
+            <mat-radio-group aria-label="Select an option" formControlName="answer" required>
+                <div>
+                    <mat-radio-button value="1">{{examen.questionschemas[i].option1}}</mat-radio-button>
+
+                </div>
+                <div>
+                    <mat-radio-button value="2">{{examen.questionschemas[i].option2}}</mat-radio-button>
+
+                </div>
+
+                <div>
+                    <mat-radio-button value="3">{{examen.questionschemas[i].option3}}</mat-radio-button>
+
+                </div>
+
+            </mat-radio-group>
+            <div>
+                <button mat-button matStepperPrevious>Précédant</button>
+                <button mat-button matStepperNext>Suivant</button>
+            </div>
+        </mat-step>
+
+        <mat-step >
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+
+            <div>
+                <button mat-button matStepperPrevious>précédant</button>
+                <button type="submit" mat-raised-button color="primary" (click)="openModaldelete(delete)" >Valider</button>
+                <ng-template #delete>
+                    <div class="modal-header">
+                      <h4 class="modal-title pull-left"> Votre score est :</h4>
+                     
+                    </div>
+                    <div class="modal-body" >
+                      <div  *ngIf="isSuccessful">
+                     <h4>  {{score}} / {{note}}</h4>
+                     <strong style="font-size: 18;margin-left:270px" *ngIf="success"><a (click)="routecertif()" > Voir votre certificat</a></strong>
+                      </div>
+                      <button class="btn "  style="margin-left:300px ;background-color:brown;" (click)="retour()" >close</button>
+
+                    </div>
+                  </ng-template>
+                  
+            </div>
+           
+           <!-- <div class="alert alert-success" *ngIf="isSuccessful">
+                {{score}}
+              </div>-->
+            
+        </mat-step>
+    </mat-horizontal-stepper>
+</form>

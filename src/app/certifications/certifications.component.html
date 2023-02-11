@@ -1,0 +1,356 @@
+<html>
+<head>
+  <style type='text/css'>
+     
+    /*  .container {
+          border: 1px solid black;
+          width: 200px;
+          height: 563px;
+          display: table-cell;
+          vertical-align: middle;
+          /*margin: 100px;
+          margin-left:100px
+      }
+      .logo {
+          font-size: 18px;
+          color: black;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          padding-top: 100px;
+        
+      }
+
+      .marquee {
+          font-weight: bold;
+          color: black;
+          font-size: 18px;
+          margin: 20px;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+      }
+      .assignment {
+          font-weight: bold;
+          margin: 20px;
+          color:blue;
+          font-size: 24px;
+      }
+      .person {
+         color:blue;
+          font-size: 24px;
+          font-style: italic;
+          margin: 20px auto;
+          width: 400px;
+      }
+      .reason {
+          border-top: 1px solid black;
+          text-align: center;
+          font-size: 12px;
+          margin-left: 800px;
+          margin-top: 100px ;
+      }
+      .reason1 {
+          text-align: center;
+          font-size: 12px;
+          margin-left: 800px;
+      }
+      .reason2 {
+          color:blue;
+          font-size: 12px;
+          margin-top: 40px ;
+      }
+      .imgsigle{
+          margin-left: 900px;
+          height:10px;
+          width:5px
+      }
+      .imgbadge{
+          margin-left: 900px;
+          height:10px;
+      }
+      .imgsignatue{
+          margin-left: 900px;
+          margin-top: 100px;
+
+          position: absolute;
+          right: 0px;
+          top: 750px;
+      }
+      .date{
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          font-size:16px;
+          position: absolute;
+          margin-right: 800px;
+          top: 450px;
+      }
+
+          .tourne {
+          width:1200px;
+          margin-left:0px;
+          position: absolute;
+              right:360px;
+              top:0px;
+          }*/
+         #container{
+            position:absolute;
+            margin-left:100px;
+            background-color: white;
+            width: 850px;
+          height: 603px;
+          }/* 
+         .tourne{
+           margin-top: 0px;
+         }
+      .marquee {
+          font-weight: bold;
+          color: black;
+          font-size: 18px;
+          margin: 20px;
+          margin-left: 200px;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+      }
+      .assignment {
+          font-weight: bold;
+          margin: 20px;
+          color:blue;
+          font-size: 24px;
+          margin-left: 200px;
+      }
+      .logo {
+          font-size: 18px;
+          color: black;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          padding-top: 100px;
+          margin-left: 200px;
+        
+      }
+      .reason{
+        border-top: 1px solid black;
+          text-align: center;
+        margin-left: 350px;
+      }
+      .reason1{
+        text-align: center;
+        margin-left: 350px;
+      }
+      .reason2{
+        margin-left: 350px;
+      }
+
+      .imgbadge{
+          margin-left: 650px;
+          height:5px;
+      }*/
+  </style>
+</head>
+<body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo"><a class="simple-text logo-normal">
+          BMCAF
+          </a></div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/menu1' routerLinkActive='active' >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/profil-utilisateur' routerLinkActive='active'>
+                <i class="material-icons">person</i>
+                <p>Profil </p>
+              </a>
+            </li>
+            <!--<li class="list-group-item " data-toggle="collapse">
+              <a  class="nav-link" routerLink='/cours' routerLinkActive='active' >
+                <i class="material-icons">content_paste</i>
+                <p>Cours</p><span class="glyphicon glyphicon-chevron-right"></span>
+              </a>-->
+              <li>
+                <a href="#demo3" class="list-group-item"  data-toggle="collapse"><i class="material-icons">
+                  content_paste
+                </i><p>Cours</p>  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <div class="collapse" id="demo3">
+                  <a href="#SubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                    school
+                    </span>          QHSE </a>
+                  <div class="collapse list-group-submenu" id="SubMenu1">
+                    <ul>
+                      <li>
+                     <a  href="#SubSubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                        snippet_folder
+                        </span>          Généralités <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                            <ul>
+                              <li>
+                            <a  routerLink='/module1user' routerLinkActive='active' class="nav-link" ><i  class="material-icons">
+                              auto_stories
+                            </i><p>Module1</p></a></li>
+                           <li>
+                          <a routerLink='/module2user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                            auto_stories
+                          </i><p>Module2</p></a>
+                          </li>
+                        <li>
+                        <a  routerLink='/module3user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                          auto_stories
+                        </i><p>Module3</p></a>
+                        </li>
+                        <li>
+                      <a routerLink='/module4user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                        auto_stories
+                      </i><p>Module4</p></a>
+                     </li>
+                     <li>
+                    <a routerLink='/module5user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                      auto_stories
+                    </i><p>Module5</p></a>
+                   </li>
+                  </ul>
+                  </div>
+                  <li>
+                          <a routerLink='/notes' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                            fact_check
+                            </span>          Notes</a></li>
+                            <li>
+                    <a routerLink='/badges' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                      verified_user
+                      </span>          Badges</a></li>
+                        <li class="nav-item active">
+                          <a routerLink='/certifications' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                              local_police
+                              </span>          Certifications</a>
+                            
+                            </li>
+                         
+                    </ul>
+                  </div>
+                 
+  
+                </div>   
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/chat-apprenant' routerLinkActive='active' >
+                <i class="material-icons">
+                  question_answer
+               
+                </i>
+                  <p>Chat</p>
+              </a>
+            </li>
+          </ul>
+  
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;" >Certification RMQHSE (Responsable Management QHSE)</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li style="font-weight: bold;">{{idUser.username}}</li>  
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Account
+                    </p>
+                    
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="/profil-utilisateur">Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title" >Description de la formation</h4>
+                </div>
+                <div class="card-body">
+                    <p>La formation en Qualité, Hygiène, Sécurité et Environnement vous permet de pratiquer le métier Responsable QHSE, assistant QHSE ou encore coordinateur QHSE, après avoir maîtrisé les outils de management pour gérer une équipe en matière d’hygiène, sécurité et environnement.
+
+                        Notre formation en QHSE vous permet d’avoir l’amélioration continue du système qualité, des conditions de travail et la conformité de votre système par rapport aux exigences normatives de sécurité.</p><br>
+                        
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+               
+                <div class="card-body">
+                  <h4 class="card-title" ><strong> Infos. pratiques </strong> </h4>
+                  <ul >
+                    <li style="margin-right:15px"> 
+                        <span class="material-icons" style="color: brown;">
+                            card_membership
+                        </span> &nbsp; &nbsp; <strong style="color: brown; ">Niveau : </strong> Bac et sans Bac
+                    </li>
+                    <li > 
+                    <span class="material-icons" style="color: brown; ">
+                    query_builder
+                    </span> &nbsp; &nbsp; <strong style="color: brown; ">Volume horaire:</strong> sur 2 mois
+                    </li>
+                   
+                    <li  style="margin-right:70px"> 
+                        <span class="material-icons" style="color: brown;">
+                            attach_money
+                        </span> &nbsp; &nbsp; <strong style="color: brown; ">Prix: </strong> 60 EURO
+                    </li>
+                  </ul>
+                  <div *ngIf="passerModule">
+                  <div *ngIf="!enable ">
+                <button type="submit" [disabled]="!trouver" class="btn btn-primary btn-round" (click)="open()" >passer la Certification</button>
+                    
+              </div>
+                  </div>
+             <div class="alert " style="color:aliceblue; background-color:brown; 
+               font-weight:bold; border-radius:25% 10%;font-family: Verdana, Geneva, Tahoma, sans-serif;
+               width: 15em; height:70px;
+               margin-top: 30px;  margin-left: auto;
+               margin-right: auto;" *ngIf="enable">
+                 vous avez passée l'examen   !      </div>
+                 <div class="alert " style="color:aliceblue; background-color:brown; 
+               font-weight:bold; border-radius:25% 10%;font-family: Verdana, Geneva, Tahoma, sans-serif;
+               width: 15em; height:80px;
+               margin-top: 30px;  margin-left: auto;
+               margin-right: auto;" *ngIf="!passerModule">
+                 vous devez passer les devoirs des cinq modules   !      </div>
+              </div>
+              
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+    
+
+      </body> 
+      </html>

@@ -1,0 +1,460 @@
+<body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo"><a class="simple-text logo-normal">
+          BMCAF
+          </a></div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/menu' routerLinkActive='active' >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/profil-admin' routerLinkActive='active'>
+                <i class="material-icons">person</i>
+                <p>Profil admin</p>
+              </a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/table-profil' routerLinkActive='active' >
+                <i class="material-icons">content_paste</i>
+                <p>Liste des apprenants</p>
+              </a>
+            </li>
+            <li class="nav-item active ">
+              <a class="nav-link" routerLink='/table-moderator' routerLinkActive='active' >
+                <i class="material-icons">content_paste</i>
+                <p>Liste des Tuteurs</p>
+              </a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/create-badge' routerLinkActive='active' >
+                <i class="material-icons">content_paste</i>
+                <p>Badges</p>
+              </a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/chat' routerLinkActive='active' >
+                <i class="material-icons">
+                  question_answer
+               
+                </i>
+                  <p>Chat</p>
+              </a>
+            </li>
+          </ul>
+         
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;">Liste des tuteurs</a>
+            </div>
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li style="font-weight: bold;">{{currentUser.username}}</li>  
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Account
+                    </p>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="/profil-admin">Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+              </ul>
+              
+            </div>
+          
+          </div>
+        
+        </nav><br><br><br>
+        
+            
+
+        <ng-template #mail>
+          <form [formGroup]="angForm" novalidate >
+            <div class="modal-header">
+              <h4 class="modal-title pull-left"> Envoyer un e-mail</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+             <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="form__top">
+            <!--    <div class="form__left">
+               
+                <div class="form__group">
+                  <input class="form__input form__input--email" type="email"  formControlName="to" placeholder="to" #to>
+                </div>
+                <div *ngIf="angForm.controls['to'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="angForm.controls['text'].errors.required">
+                    email is required.
+                  </div>
+                </div>
+              </div>-->
+            <div class="form__group">
+                <input class="form__input form__input--name" type="text"   formControlName="subject" placeholder="subject" #subject>
+              </div>
+              <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['subject'].errors.required">
+                  subject is required.
+                </div>
+              </div>
+              <div class="form__right">
+                <div class="form__group">
+                  <textarea class="form__input form__input--textarea" placeholder="Message" formControlName="text"  #text
+                    rows="3"></textarea>
+                </div>
+                <div *ngIf="angForm.controls['text'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="angForm.controls['text'].errors.required">
+                    message is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <flash-messages></flash-messages>
+            <div class="form__down">
+              <div class="form__group">
+                <button  (click)="sendMail(subject.value, text.value)" [disabled]="angForm.pristine || angForm.invalid"  class="form__input form__input--submit btn btn-primary" name="submit" type="submit" value="SEND MESSAGE">SEND MESSAGE
+                </button>
+              </div>
+            </div>
+            </div>
+          </form>
+         
+        </ng-template>
+
+
+
+
+                <div  style="margin-right: 850px">
+                  <div>
+
+        <ng-template #add>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Ajouter tuteur</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form *ngIf="!isSuccessful"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Username</label>
+                    <input type="text" class="form-control" required name="username" [(ngModel)]="form.username"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    #username="ngModel" />
+                    <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+                      <div *ngIf="username.errors.required">Nom d'utilisateur est obligatoire</div>
+                      <div *ngIf="username.errors.minlength">
+                        Username must be at least 3 characters
+                      </div>
+                      <div *ngIf="username.errors.maxlength">
+                        Le nom d'utilisateur doit comporter au moins 3 caractères
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="col-md-6">
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  [(ngModel)]="form.password"
+                  required
+                  minlength="6"
+                  #password="ngModel"
+                />
+                <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                  <div *ngIf="password.errors.required">Mot de passe est obligatoire</div>
+                  <div *ngIf="password.errors.minlength">
+                    Le mot de passe doit être au moins de 6 caractères
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">adresse E-mail</label>
+                    <input type="text" class="form-control" required name="email" type="email"
+                    
+                    [(ngModel)]="form.email"
+                    required
+                    email
+                    #email="ngModel"/>
+                    <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                      <div *ngIf="email.errors.required">Email  est obligatoire</div>
+                      <div *ngIf="email.errors.email">
+                        L'e-mail doit être une adresse e-mail valide
+                                            </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Ville</label>
+                    <input type="text" class="form-control" required name="ville"
+                    [(ngModel)]="form.ville"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    #ville="ngModel"/>
+                    <div class="alert-danger" *ngIf="f.submitted && ville.invalid">
+                      <div *ngIf="ville.errors.required">ville est obligatoire</div></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Pays</label>
+                    <input type="text" 
+                    class="form-control"
+                    name="pays"
+                    [(ngModel)]="form.pays"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    #pays="ngModel"/>
+                    <div class="alert-danger" *ngIf="f.submitted && pays.invalid">
+                      <div *ngIf="pays.errors.required">Pays est obligatoire</div></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-4">
+                  <div class="form-group">
+                    
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                  </div>
+                </div>
+               
+                <button  type="submit" class="btn btn-primary pull-right" > Ajouter Tuteur</button>
+                        <p></p>
+                        <div class="clearfix"></div>
+                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                          la création a échoué!<br />{{ errorMessage }}
+                        </div>
+              </div> 
+            </form>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              Votre ajout est réussie !
+                        </div>
+                
+          </div>
+        </ng-template></div></div>
+      
+        <div class="content">
+          <div class="container-fluid">
+           <div class="row">
+              <div class="col-md-12">
+
+                <div>
+     
+                 <button (click)="openModalmail(mail)" style="margin-left:800px ;margin-bottom: 10px; background-color:rgb(255, 255, 255);border: white; color:black" class="btn">
+                  
+                    <span class="material-icons"  >
+                      mail
+                      </span>                     Envoyer un e-mail à tous 
+                      </button>
+                      &nbsp;
+                      <button  id="btnShowCreateUser" class="btn btn-secondary mb-2 text-lg-center" 
+                      (click)="openModaladd(add)"  data-toggle="modal" style="margin-left:800px ; margin-top:10px;background-color:rgb(255, 255, 255);border: white; color:black" class="btn">
+                        <i class="fa fa-lg fa-plus-circle pr-2"></i>
+                        Ajouter Tuteur
+                      </button>
+                    </div>
+
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                   <h4 class="card-title ">Liste  des Tuteurs</h4> 
+                   
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class=" text-primary">
+                          <th>
+                          Nom d'utilisateur
+                          </th>
+                          
+                          <th>
+                             Adresse E-mail
+                          </th>
+                          <th>
+                            Ville
+                          </th>
+                          <th>
+                            Pays
+                          </th>
+                          <th>
+                            Action
+                          </th>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let currentModerators of userService.users">
+                            <td>
+                              {{currentModerators.username}}
+                            </td>
+                            
+                            <td >
+                              {{currentModerators.email}}
+                            </td>
+                            <td >
+                              {{currentModerators.ville}}
+                            </td>
+                            <td >
+                              {{currentModerators.pays}}
+                            </td>
+                            <td >
+                              <button style="background-color: white;border: white;" (click)="openModaledit(edit,users)">
+                              <span class="material-icons" >
+                                edit
+                                </span>
+                              </button>
+                              <button style="background-color: white;border: white;" >
+                                <span class="material-icons" style="color:rgba(255, 8, 0, 0.795) ;" (click)="openModaldelete(delete)">
+                                  delete
+                                  </span>
+                                  </button>
+                                  <button style="background-color: white;border: white;" >
+                                    <span class="material-icons"  (click)="openModalUnMail(UnMail)">
+                                      mail
+                                      </span>
+                                      </button>
+                                      <ng-template #UnMail>
+                                        <form [formGroup]="angForm" novalidate >
+                                          <div class="modal-header">
+                                            <h4 class="modal-title pull-left"> Envoyer un e-mail</h4>
+                                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                           <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                          <div class="form__top">
+                    
+                                          <div class="form__group">
+                                              <input class="form__input form__input--name" type="text"   formControlName="subject" placeholder="subject" #subject>
+                                            </div>
+                                            
+                                            <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)" class="alert alert-danger">
+                                              <div *ngIf="angForm.controls['subject'].errors.required">
+                                                subject is required.
+                                              </div>
+                                            </div>
+                                            <div class="form__right">
+                                              <div class="form__group">
+                                                <textarea class="form__input form__input--textarea" placeholder="Message" formControlName="text"  #text
+                                                  rows="3"></textarea>
+                                              </div>
+                                              <div *ngIf="angForm.controls['text'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+                                                class="alert alert-danger">
+                                                <div *ngIf="angForm.controls['text'].errors.required">
+                                                  message is required.
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <flash-messages></flash-messages>
+                                          <div class="form__down">
+                                            <div class="form__group">
+                                              <button  (click)="sendUnMail(currentModerators.email,subject.value, text.value)" [disabled]="angForm.pristine || angForm.invalid"  class="form__input form__input--submit btn btn-primary" name="submit" type="submit" value="SEND MESSAGE">SEND MESSAGE
+                                              </button>
+                                            </div>
+                                          </div>
+                                          </div>
+                                        </form>
+                                       
+                                      </ng-template>
+
+                            <ng-template #edit>
+                              <div class="modal-header">
+                                <h4 class="modal-title pull-left"> Modifier Tuteur</h4>
+                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                               <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form>
+                                    <label for="username">Nomd'utilisateur</label>
+                                     <input type="text" class="form-control" required name="username"   #username="ngModel" [(ngModel)]="currentModerators.username"/>
+                                     
+                                     <label for="email">Adresse E-mail</label>
+                                     <input type="text" class="form-control" required name="email" [(ngModel)]="currentModerators.email"/>
+                                     <label for="ville">Ville</label>
+                                     <input type="text" class="form-control" required name="ville" [(ngModel)]="currentModerators.ville"/>
+                                     <label for="pays">Pays</label>
+                                     <input type="text" class="form-control" required name="pays" [(ngModel)]="currentModerators.pays"/>
+                                     <button class="btn btn-primary" type="submit" (click)="updateUser(currentModerators.id,currentModerators)"> modifier</button>
+                                </form>
+                              </div>
+                            </ng-template>
+                            <ng-template #delete>
+                              <div class="modal-header">
+                                <h4 class="modal-title pull-left"> Supprimer Tuteur</h4>
+                                <button type="button" class="close pull-right" aria-label="Close" (click)="modeldelete.hide()">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" >
+                                <p>Etes-vous sûr que vous voulez supprimer ce utilisateur?</p>
+                                <button class="btn btn-primary  " (click)="modeldelete.hide()" >non</button>
+                                <button class="btn btn-danger  " (click)="deleteUser(currentModerators.id)">oui</button>
+                              </div>
+                            </ng-template>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </body>  
+     

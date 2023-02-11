@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <style type='text/css'>
+            body, html {
+                margin: 0;
+                padding: 0;
+                background-color: white;
+                
+               
+            }
+            body {
+                color: black;
+                display: table;
+                font-family: Georgia, serif;
+                font-size: 24px;
+                text-align: center;
+                margin-left: 120px;
+                width:12px
+                /*width: 29.7cm;
+                height:11.45cm;*/
+                /*border: 1px solid palegreen;*/
+                
+               
+            }
+            .container {
+                border: 1px solid black;
+                width: 750px;
+                height: 563px;
+                display: table-cell;
+                vertical-align: middle;
+                margin: 100px;;
+            }
+            .logo {
+                font-size: 18px;
+                color: black;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                padding-top: 100px;
+              
+            }
+
+            .marquee {
+                font-weight: bold;
+                color: black;
+                font-size: 18px;
+                margin: 20px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            }
+            .assignment {
+                font-weight: bold;
+                margin: 20px;
+                color:blue;
+                font-size: 24px;
+            }
+            .person {
+               color:blue;
+                font-size: 24px;
+                font-style: italic;
+                margin: 20px auto;
+                width: 400px;
+            }
+            .reason {
+                border-top: 1px solid black;
+                text-align: center;
+                font-size: 12px;
+                margin-left: 800px;
+                margin-top: 100px ;
+            }
+            .reason1 {
+                text-align: center;
+                font-size: 12px;
+                margin-left: 800px;
+            }
+            .reason2 {
+                color:blue;
+                font-size: 12px;
+                margin-top: 40px ;
+            }
+            .imgsigle{
+                margin-left: 900px;
+                height:10px;
+                width:5px
+            }
+            .imgbadge{
+                margin-left: 900px;
+                height:10px;
+            }
+            .imgsignatue{
+                margin-left: 900px;
+                margin-top: 0px;
+
+                position: absolute;
+                right: 0px;
+                top: 250px;
+            }
+            .date{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size:16px;
+                position: absolute;
+                margin-right: 800px;
+                top: 450px;
+            }
+ 
+                .tourne {
+                width:1200px;
+                margin-left:0px;
+                position: absolute;
+                    right:360px;
+                    top:0px;
+                }
+        </style>
+    </head>
+    <body >
+        <div  id="container" >
+            <div class="tourne"><img src="../../assets/img/images/bandeRouge.png"
+                alt="sigle bmcaf"
+                ></div>
+            <div class="imgbadge"> <img src="../../assets/img/badge final 2 (2).png"
+                alt="sigle bmcaf" width="175"
+                height="175"></div> 
+            <div class="logo">
+              le cabinet privé d'etude et  de formation BMCAF<BR>atteste par la présent que :
+            </div> 
+            <div class="person">
+                {{name}}            
+                </div>
+            <div class="imgsigle"> <img src="../../assets/img/sigle.png"
+                alt="sigle bmcaf" width="150"
+                height="150"></div> 
+            <div class="marquee">
+                A obtenu la certification du parcours complet 
+            </div>
+          
+            <div class="assignment">
+                
+            RESPONSABLE MANAGEMENT QHSE
+
+            </div>
+
+            
+
+            <div class="reason">
+               Le Directeur 
+            </div>
+            <div class="reason1">
+            M. BOUGUERRA Khaled 
+             </div> 
+             <div class="imgsignatue" > <img src="../../assets/img/signature.png"
+                alt="sigle bmcaf" width="600"
+                height="600" ></div> 
+                <div class="reason2">
+                   Tunis, Le {{myDate | date:' dd/MM/YYYY'}}
+                 </div>
+            <div class="date">
+            <ngx-qrcode 
+            [elementType]="elementType" 
+            [value] = "value"
+            cssClass = "aclass"
+            errorCorrectionLevel = "L">
+      </ngx-qrcode>
+          </div>                              
+        </div>
+        <button type="submit" class="btn" style="background-color: blue;" (click)="generatePDF()">Télecharger</button>
+    </body>
+</html>

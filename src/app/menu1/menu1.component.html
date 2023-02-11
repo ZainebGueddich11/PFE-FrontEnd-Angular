@@ -1,0 +1,119 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a  class="simple-text logo-normal">
+          BMCAF
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" routerLink='/menu1' routerLinkActive='active' >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/profil-utilisateur' routerLinkActive='active'>
+              <i class="material-icons">person</i>
+              <p>Profil </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/cours' routerLinkActive='active'>
+              <i class="material-icons">
+                style
+              </i>
+              <p>Cours</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/chat-apprenant' routerLinkActive='active' >
+              <i class="material-icons">
+                question_answer
+             
+              </i>
+                <p>Chat</p>
+            </a>
+          </li>
+       
+         <!-- <li class="nav-item ">
+            <a class="nav-link" routerLink='/opinion' routerLinkActive='active'>
+              <i class="material-icons">
+                style
+              </i>
+              <p>Remplir enquête</p>
+            </a>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+  
+          </div>
+          
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">   
+              <li style="font-weight: bold;">{{currentUser.username}}</li>  
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" (click)="test()" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="/profil-utilisateur">Profil</a>
+                  <div class="dropdown-divider"></div>
+                  <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                </div>
+              </li>
+            
+            </ul>
+            
+          </div>
+         
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 style="text-align: center;" >Bienvenue sur notre site "BMCAF"</h1>
+              <h1 style="text-align: center;color:black;" class="lead">MOOC- MQHSE - Tronc commun MQHSE 03 (TC)-Cours :</h1>
+              <h1 style="text-align: center;color:black;" class="lead"> Responsable QHSE</h1>
+              <img src="../../assets/img/qhse.jpg" alt="" style="width: 500px;margin-left: 270px;margin-top: 25px;margin-bottom: 25px"/>
+              
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              
+            </div>
+            </div>
+            </div>
+            </div>
+      </div>
+      </div>
+     
+      <!-- End Navbar -->                  
+</body>

@@ -1,0 +1,343 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+<body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo"><a  class="simple-text logo-normal">
+            BMCAF
+          </a></div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/menu1' routerLinkActive='active' >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/profil-utilisateur' routerLinkActive='active'>
+                <i class="material-icons">person</i>
+                <p>Profil </p>
+              </a>
+            </li>
+            <li>
+                <a href="#demo3" class="list-group-item"  data-toggle="collapse"><i class="material-icons">
+                  content_paste
+                </i><p>Cours</p>  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <div class="collapse" id="demo3">
+                  <a href="#SubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                    school
+                    </span>          QHSE </a>
+                  <div class="collapse list-group-submenu" id="SubMenu1">
+                    <ul>
+                      <li>
+                     <a  href="#SubSubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                        snippet_folder
+                        </span>          Généralités <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                            <ul>
+                              <li>
+                            <a  routerLink='/module1user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                              auto_stories
+                            </i><p>Module1</p></a>
+                        </li>
+                        <li  class="nav-item active">
+                          <a routerLink='/module2user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                            auto_stories
+                          </i><p>Module2</p></a>
+                        </li>
+
+                        <li>
+                        <a routerLink='/module3user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                          auto_stories
+                        </i><p>Module3</p></a>
+                    </li>
+
+                        
+                    <li>
+                      <a routerLink='/module4user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                        auto_stories
+                      </i><p>Module4</p></a>
+                    </li>
+
+                     <li>
+                    <a routerLink='/module5user' routerLinkActive='active' class="nav-link"><i  class="material-icons">
+                      auto_stories
+                    </i><p>Module5</p></a>
+                </li>
+
+                  </ul>
+                  </div>
+                  <li>
+                          <a routerLink='/notes' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                            fact_check
+                            </span>          Notes</a></li>
+                            <li>
+                    <a routerLink='/badges' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                        local_police
+                        </span>          Badges</a></li>
+                        <li>
+                          <a routerLink='/certifications' routerLinkActive='active' class="list-group-item"><span class="material-icons">
+                              card_membership
+                              </span>          Certifications</a>
+                            
+                            </li>
+                        
+                    </ul>
+                   
+                  </div>
+                 
+  
+                </div>   
+            </li> 
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/chat-apprenant' routerLinkActive='active' >
+                <i class="material-icons">
+                  question_answer
+               
+                </i>
+                  <p>Chat</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;">Module 2: LES EXIGENCES DE LA NORME ISO 9001 Version 2015</a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">      
+                <li style="font-weight: bold;">{{idUser.username}}</li>    
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Account
+                    </p>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="/profil-utilisateur">Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-warning card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">looks_one</i>
+                          </div>
+                          <p class="card-category">Session 1</p>
+                          <br>
+                          <br>
+                          <div style="text-align:center;color:gray;text-transform: initial;"><strong>Le Contexte de L'organisme</strong></div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(231, 156, 57);" *ngIf='showFile1' (click)='showFiles1(false)'>Masquer les cours</button>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(231, 156, 57);" *ngIf='!showFile1' (click)='showFiles1(true)'>Afficher les cours</button>
+                        <div class="card-footer">
+                           <div class="stats" >
+                           <div [hidden]="!showFile1">
+                              <div *ngFor="let file of fileUploads1 | async;let i=index" >
+                                <div style="color:rgb(207, 17, 17);"><strong>* Cours {{i+1}}:</strong></div>
+                                <strong><a  href= "http://localhost:8080/tmp/{{file.name}}" target='_blank'>{{file.name}}</a></strong>
+                                <a href="http://localhost:8080/api/file/{{file.id}}" ><span class="material-icons" >
+                                    file_download
+                                </span></a>
+                                <div style="color:rgb(207, 17, 17);"><strong>* Description {{i+1}}:</strong></div>
+                                <div style="color:black">{{file.description}}</div>
+                                  </div>
+                          </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-success card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">looks_two</i>
+                          </div>
+                          <p class="card-category">Session 2 </p>
+                          <br>
+                          <br>
+                          <div style="text-align:center;color:gray;text-transform: initial;"><strong>Leadership</strong></div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(8, 165, 8);" *ngIf='showFile2' (click)='showFiles2(false)'>Masquer les cours</button>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(8, 165, 8);" *ngIf='!showFile2' (click)='showFiles2(true)'>Afficher les cours</button>
+                        <div class="card-footer">
+                           <div class="stats" >
+                           <div [hidden]="!showFile2">
+                              <div *ngFor="let file of fileUploads2 | async;let i=index" >
+                                <div style="color:rgb(207, 17, 17);"><strong>* Cours {{i+1}}:</strong></div>
+                                <strong><a  href= "http://localhost:8080/tmp/{{file.name}}" target='_blank'>{{file.name}}</a></strong>
+                                <a href="http://localhost:8080/api/file/{{file.id}}" ><span class="material-icons" >
+                                    file_download
+                                </span></a>                                <div style="color:rgb(207, 17, 17);"><strong>* Description {{i+1}}:</strong></div>
+                                <div style="color:black">{{file.description}}</div>
+                                  </div>
+                          </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">looks_3</i>
+                          </div>
+                          <p class="card-category">Session 3</p>
+                          <br>
+                          <br>
+                          <div style="text-align:center;color:gray;text-transform: initial;"><strong>La planification</strong></div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(204, 17, 17);" *ngIf='showFile3' (click)='showFiles3(false)'>Masquer les cours</button>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(204, 17, 17);" *ngIf='!showFile3' (click)='showFiles3(true)'>Afficher les cours</button>
+                        <div class="card-footer">
+                           <div class="stats" >
+                           <div [hidden]="!showFile3">
+                              <div *ngFor="let file of fileUploads3 | async;let i=index" >
+                                <div style="color:rgb(207, 17, 17);"><strong>* Cours {{i+1}}:</strong></div>
+                                <strong><a  href= "http://localhost:8080/tmp/{{file.name}}" target='_blank'>{{file.name}}</a></strong>
+                                <a href="http://localhost:8080/api/file/{{file.id}}" ><span class="material-icons" >
+                                    file_download
+                                </span></a>                                <div style="color:rgb(207, 17, 17);"><strong>* Description {{i+1}}:</strong></div>
+                                <div style="color:black">{{file.description}}</div>
+                                  </div>
+                          </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="card card-stats">
+                        <div class="card-header card-header-info card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">looks_4</i>
+                          </div>
+                          <p class="card-category">Session 4</p>
+                          <br>
+                          <br>
+                          <div style="text-align:center;color:gray;text-transform: initial;"><strong>Support</strong></div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(0, 153, 255);" *ngIf='showFile4' (click)='showFiles4(false)'>Masquer les cours</button>
+                        <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: rgb(0, 153, 255);" *ngIf='!showFile4' (click)='showFiles4(true)'>Afficher les cours</button>
+                        <div class="card-footer">
+                           <div class="stats" >
+                           <div [hidden]="!showFile4">
+                              <div *ngFor="let file of fileUploads4 | async;let i=index" >
+                                <div style="color:rgb(207, 17, 17);"><strong>* Cours {{i+1}}:</strong></div>
+                                <strong><a  href= "http://localhost:8080/tmp/{{file.name}}" target='_blank'>{{file.name}}</a></strong>
+                                <a href="http://localhost:8080/api/file/{{file.id}}" ><span class="material-icons" >
+                                    file_download
+                                </span></a>                                <div style="color:rgb(207, 17, 17);"><strong>* Description {{i+1}}:</strong></div>
+                                <div style="color:black">{{file.description}}</div>
+                                  </div>
+                          </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                     class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                          <div class="card-header card-header-failed card-header-icon">
+                            <div class="card-icon">
+                              <i class="material-icons">looks_5</i>
+                            </div>
+                            <p class="card-category">Session 5</p>
+                            <br>
+                            <br>
+                            <div style="text-align:center;color:gray;text-transform: initial;"><strong>Réalisation des activités opérationnelles</strong></div>
+                          </div>
+                          <hr>
+                          <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: gray;" *ngIf='showFile5' (click)='showFiles5(false)'>Masquer les cours</button>
+                          <button class="btn btn-primary" style="width: 200px; margin-left: 20px;background-color: gray;" *ngIf='!showFile5' (click)='showFiles5(true)'>Afficher les cours</button>
+                          <div class="card-footer">
+                             <div class="stats" >
+                             <div [hidden]="!showFile5">
+                                <div *ngFor="let file of fileUploads5 | async;let i=index" >
+                                  <div style="color:rgb(207, 17, 17);"><strong>* Cours {{i+1}}:</strong></div>
+                                  <strong><a  href= "http://localhost:8080/tmp/{{file.name}}" target='_blank'>{{file.name}}</a></strong>
+                                  <a href="http://localhost:8080/api/file/{{file.id}}" ><span class="material-icons" >
+                                      file_download
+                                  </span></a>                                  <div style="color:rgb(207, 17, 17);"><strong>* Description {{i+1}}:</strong></div>
+                                  <div style="color:black">{{file.description}}</div>
+ 
+                                </div>
+                            </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6 col-sm-6"  >
+                        <div class="card card-stats" style="margin-bottom: 0%;" >
+                          <div class="card-header card-header-failed card-header-icon"  >
+                            <div  >
+                              <img src="../../../assets/img/exam.png" style="width: 70px;">
+                              <i class="material-icons" >quiz</i>
+                            </div>
+                            <p class="card-category">Devoir2</p>
+                          </div>
+                          <hr>
+                          <div *ngIf="!enable">
+                          <button class="btn btn-primary"  [disabled]="!trouver" style="background-color: rgb(131, 29, 29);width: 200px; margin-left: 20px;"   (click)="examM2()" >Passer l'examen</button>
+                             </div>    
+                             <div class="alert " style="color:aliceblue; background-color:brown; 
+                        font-weight:bold; border-radius:25% 10%;font-family: Verdana, Geneva, Tahoma, sans-serif;
+                        width: 15em; height:70px;
+                          margin-left: auto;
+                        margin-right: auto;" *ngIf="enable">
+                          vous avez passée l'examen   !      </div>
+                          <div class="card-footer">
+                             <div class="stats" >
+
+                            </div>
+                           
+                          </div>
+                        </div>
+                      
+                      </div>
+                  </div>
+                </div>
+                </div>
+        </div>
+        </div>
+        <!-- End Navbar -->                  
+  </body>

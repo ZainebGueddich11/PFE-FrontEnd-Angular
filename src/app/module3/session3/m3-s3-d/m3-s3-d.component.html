@@ -1,0 +1,376 @@
+<body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo">
+          <a  class="simple-text logo-normal">
+          BMCAF
+          </a></div>
+          <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li class="nav-item   ">
+                <a class="nav-link" routerLink='/menu2' routerLinkActive='active' >
+                  <i class="material-icons">dashboard</i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" routerLink='/profil-tuteur' routerLinkActive='active'>
+                  <i class="material-icons">person</i>
+                  <p>Profil Tuteurs</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" routerLink='/liste-utilisateur-mod' routerLinkActive='active'>
+                  <i class="material-icons">content_paste</i>
+                  <p>Liste des utilisateurs</p>
+                </a>
+              </li>
+              <li >
+                <a href="#demo3"  class="list-group-item"  data-toggle="collapse"><i class="material-icons">
+                  style
+                </i><p>Cours</p>  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <div class="collapse" id="demo3">
+                  <a href="#SubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                    school
+                    </span>          QHSE </a>
+                  <div class="collapse list-group-submenu" id="SubMenu1">
+                    <ul>
+                      <li>
+                     <a  href="#SubSubMenu1" class="list-group-item" data-toggle="collapse"><span class="material-icons">
+                        snippet_folder
+                        </span>          Généralités <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+                            <ul>
+                              <li>
+                            <a  href="#SubSubSubMenu1" class="list-group-item" data-toggle="collapse"><i  class="material-icons">
+                              auto_stories
+                            </i><p>Module1</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubSubMenu1">
+                              <li><a href="#m1s1" class="list-group-item" data-toggle="collapse"><p>Session 1</p></a></li>
+                              <div class="collapse list-group-submenu list-group-submenu-1" id="m1s1">
+                                <li ><a routerLink='/documentation' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                  drive_file_move_rtl
+                                  </span><strong style="size: 8dp">  Documentation</strong></a></li>
+                              </div>
+                              <li><a href="#m1s2"  class="list-group-item" data-toggle="collapse"><p>Session 2</p></a></li>
+                              <div class="collapse list-group-submenu list-group-submenu-1" id="m1s2">
+                                <li ><a routerLink='/m1-s2-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                  drive_file_move_rtl
+                                  </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                              </div>
+                              <li><a href="#m1s3" class="list-group-item" data-toggle="collapse"><p>Session 3</p></a></li>
+                              <div class="collapse list-group-submenu list-group-submenu-1" id="m1s3">
+                                <li ><a routerLink='/m1-s3-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                  drive_file_move_rtl
+                                  </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                              </div>
+                              <li><a href="#m1s4" class="list-group-item" data-toggle="collapse" ><p>Session 4</p></a></li>
+                              <div class="collapse list-group-submenu list-group-submenu-1" id="m1s4">
+                                <li><a routerLink='/m1-s4-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                  drive_file_move_rtl
+                                  </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                              </div>
+                              <li><a href="#m1s5" class="list-group-item" data-toggle="collapse"><p>Session 5</p></a></li>
+                              <div class="collapse list-group-submenu list-group-submenu-1" id="m1s5">
+                                <li><a routerLink='/m1-s5-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                  drive_file_move_rtl
+                                  </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                              </div>
+                              
+                            </div>
+                          <a href="#SubSubSubSubMenu1" class="list-group-item" data-toggle="collapse"><i  class="material-icons">
+                            auto_stories
+                          </i><p>Module2</p></a>
+                          <div id="SubSubSubSubMenu1" class="collapse list-group-submenu list-group-submenu-1">
+                            <li><a href="#m2s1" class="list-group-item" data-toggle="collapse"><p>Session 1</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m2s1">
+                              <li><a routerLink='/m2-s1-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m2s2"  class="list-group-item" data-toggle="collapse"><p>Session 2</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m2s2">
+                              <li><a routerLink='/m2-s2-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m2s3" class="list-group-item" data-toggle="collapse"><p>Session 3</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m2s3">
+                              <li><a routerLink='/m2-s3-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m2s4" class="list-group-item" data-toggle="collapse" ><p>Session 4</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m2s4">
+                              <li><a routerLink='/m2-s4-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m2s5" class="list-group-item" data-toggle="collapse"><p>Session 5</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m2s5">
+                              <li><a routerLink='/m2-s5-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            
+                          </div>
+                        
+                        <a  href="#SubSubSubSubSubMenu1" class="list-group-item" data-toggle="collapse"><i  class="material-icons">
+                          auto_stories
+                        </i><p>Module3</p></a>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubSubSubSubMenu1">
+                            <li><a href="#m3s1" class="list-group-item" data-toggle="collapse"><p>Session 1</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m3s1">
+                              <li><a routerLink='/m3-s1-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m3s2"  class="list-group-item" data-toggle="collapse"><p>Session 2</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m3s2">
+                              <li><a routerLink='/m3-s2-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m3s3" class="list-group-item" data-toggle="collapse"><p>Session 3</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m3s3">
+                              <li class="nav-item active"><a routerLink='/m3-s3-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m3s4" class="list-group-item" data-toggle="collapse" ><p>Session 4</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m3s4">
+                              <li><a routerLink='/m3-s4-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                            </div>
+                            <li><a href="#m3s5" class="list-group-item" data-toggle="collapse"><p>Session 5</p></a></li>
+                            <div class="collapse list-group-submenu list-group-submenu-1" id="m3s5">
+                              <li><a routerLink='/m3-s5-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                                drive_file_move_rtl
+                                </span><strong style="size: 8dp">  Documentation</strong></a></li>
+                            </div>
+                           
+                          </div>
+                      <a href="#SubSubSubSubSubSubMenu1"  class="list-group-item" data-toggle="collapse"><i  class="material-icons">
+                        auto_stories
+                      </i><p>Module4</p></a>
+                      <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubSubSubSubSubMenu1">
+                          <li><a href="#m4s1" class="list-group-item" data-toggle="collapse"><p>Session 1</p></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="m4s1">
+                            <li><a routerLink='/m4-s1-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                              drive_file_move_rtl
+                              </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                          </div>
+                          <li><a href="#m4s2"  class="list-group-item" data-toggle="collapse"><p>Session 2</p></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="m4s2">
+                            <li><a routerLink='/m4-s2-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                              drive_file_move_rtl
+                              </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                          </div>
+                          <li><a href="#m4s3" class="list-group-item" data-toggle="collapse"><p>Session 3</p></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="m4s3">
+                            <li><a routerLink='/m4-s3-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                              drive_file_move_rtl
+                              </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                          </div>
+                          <li><a href="#m4s4" class="list-group-item" data-toggle="collapse" ><p>Session 4</p></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="m4s4">
+                            <li><a routerLink='/m4-s4-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                              drive_file_move_rtl
+                              </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                          </div>
+                          <li><a href="#m4s5" class="list-group-item" data-toggle="collapse"><p>Session 5</p></a></li>
+                          <div class="collapse list-group-submenu list-group-submenu-1" id="m4s5">
+                            <li><a routerLink='/m4-s5-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                              drive_file_move_rtl
+                              </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                          </div>
+                         
+                        </div>
+                    
+                    <a href='#SubSubSubSubSubSubSubMenu1' class="list-group-item" data-toggle="collapse"><i  class="material-icons">
+                      auto_stories
+                    </i><p>Module5</p></a>
+                    <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubSubSubSubSubSubMenu1">
+                        <li><a href="#m5s1" class="list-group-item" data-toggle="collapse"><p>Session 1</p></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="m5s1">
+                          <li><a routerLink='/m5-s1-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                            drive_file_move_rtl
+                            </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                        </div>
+                        <li><a href="#m5s2"  class="list-group-item" data-toggle="collapse"><p>Session 2</p></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="m5s2">
+                          <li><a routerLink='/m5-s2-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                            drive_file_move_rtl
+                            </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                        </div>
+                        <li><a href="#m5s3" class="list-group-item" data-toggle="collapse"><p>Session 3</p></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="m5s3">
+                          <li><a routerLink='/m5-s3-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                            drive_file_move_rtl
+                            </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                        </div>
+                        <li><a href="#m5s4" class="list-group-item" data-toggle="collapse" ><p>Session 4</p></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="m5s4">
+                          <li><a routerLink='/m5-s4-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                            drive_file_move_rtl
+                            </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                        </div>
+                        <li><a href="#m5s5" class="list-group-item" data-toggle="collapse"><p>Session 5</p></a></li>
+                        <div class="collapse list-group-submenu list-group-submenu-1" id="m5s5">
+                          <li><a routerLink='/m5-s5-d' routerLinkActive='active' class="list-group-item"><span style="size:8dp;" class="material-icons">
+                            drive_file_move_rtl
+                            </span><strong style="size: 8dp;">  Documentation</strong></a></li>
+                        </div>
+                      
+                      </div>
+                  </ul>
+                  </div>
+                  <li>
+                    <a  href="#Examen" class="list-group-item" data-toggle="collapse"><span  class="material-icons">
+                      auto_stories
+                    </span>                       Examen</a></li>
+                    <div class="collapse list-group-submenu " id="Examen">
+                      <li><a routerLink='/create' routerLinkActive='active' class="list-group-item" ><i style="size:8dp;" class="material-icons">
+                        drive_file_move_rtl
+                      </i> Créer un examen</a></li>
+                        <li><a routerLink='/list' routerLinkActive='active' class="list-group-item"><i style="size:8dp;" class="material-icons">
+                          drive_file_move_rtl
+                        </i> Lister les examens</a></li>
+                       
+                      </div>
+                        
+            </ul>
+          </div>
+        </div>
+        </li>
+        <li class="nav-item  ">
+          <a class="nav-link" routerLink='/chat-tuteur' routerLinkActive='active' >
+            <i class="material-icons">
+              question_answer
+           
+            </i>
+              <p>Chat</p>
+          </a>
+        </li>
+            </ul>
+          </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;" style="font-weight: bolder; color:#301934;font-size:30px;text-align: center center;"> Module3 :LES EXIGENCES DE LA NORME ISO 14001</a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li style="font-weight: bold;">{{currentUser.username}}</li>         
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Compte
+                    </p>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="/profil-tuteur">Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="container-fluid">
+            <hr>
+            <div style="margin-top:0px;font-size:20px;color:#800080;font-weight: bold;"> Session3 : Planification</div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Déposer cours</h4>
+                  </div>
+                  <div class="card-body">
+                    <form
+                    name="form"
+                    class="mt-4"
+                    action="/upload"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                      <div class="row">
+                        <div class="col-md-6">
+                            <label class="btn btn-default p-0"  class="form-control-file border">
+                                <input type="file" (change)="selectFile($event)"  />
+                              </label>
+                              <label >Description
+                                <input type="text" name="description" [(ngModel)]="form.description" #description="ngModel"/>
+                              </label>
+                            <button    type="submit" class="btn btn-primary"  [disabled]="!selectedFiles" (click)="upload3()" >Ajouter un cours</button>      
+                        </div>
+                      </div>
+                      </form>
+                  </div>
+                </div>
+                <hr />
+                <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card">
+                           <!--<div class="card-header card-header-primary">
+                              <h4 class="card-title ">List of Files</h4>
+                            </div>-->
+                            <button class="btn btn-primary" *ngIf='showFile' (click)='showFiles3(false)'>Masquer les fichiers</button>
+                            <button class="btn btn-primary" *ngIf='!showFile' (click)='showFiles3(true)'>Afficher les fichiers</button>
+                            <div [hidden]="!showFile">
+                                <div class="panel panel-primary">
+                                  <!--<div class="panel-heading">List of Files</div>-->
+                                    <h4 style="color:rgb(139, 0, 139);">Liste des cours :</h4>
+                                  <div *ngFor="let file of fileUploads | async">
+                                    <div class="panel-body">
+                                        <strong><a href="http://localhost:8080/api/file/{{file.id}}" >{{file.name}}</a></strong>
+                                        <button style="background-color: white;border: white;" >
+                                          <span class="material-icons" style="color:rgba(255, 8, 0, 0.795) ;" (click)="openModaldelete(delete)">
+                                            delete
+                                            </span>
+                                            </button>
+                                            <ng-template #delete>
+                                              <div class="modal-header">
+                                                <h4 class="modal-title pull-left"> Supprimer cours</h4>
+                                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body" >
+                                                <p>Etes-vous sûr que vous voulez supprimer ce cours?</p>
+                                                <button class="btn btn-primary  " (click)="modalRef.hide()" >non</button>
+                                                <button class="btn btn-danger  " (click)="deleteCours(file.id)">oui</button>
+                                              </div>
+                                            </ng-template>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>  

@@ -1,0 +1,173 @@
+<body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo">
+          <a  class="simple-text logo-normal">
+          BMCAF
+          </a></div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/menu2' routerLinkActive='active' >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item active ">
+              <a class="nav-link" routerLink='/profil-tuteur' routerLinkActive='active'>
+                <i class="material-icons">person</i>
+                <p>Profil Tuteur</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/liste-utilisateur-mod' routerLinkActive='active'>
+                <i class="material-icons">content_paste</i>
+                <p>Liste des utilisateurs</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/cours-mod' routerLinkActive='active'>
+                <i class="material-icons">
+                  style
+                </i>
+                <p>Cours</p>
+              </a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" routerLink='/chat-tuteur' routerLinkActive='active' >
+                <i class="material-icons">
+                  question_answer
+               
+                </i>
+                  <p>Chat</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;">Profil tuteur</a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li style="font-weight: bold;">{{currentUser.username}}</li>         
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Compte
+                    </p>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="/profil-tuteur">Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Informations détaillées</h4>
+                  </div>
+                  <div class="card-body">
+                    <form 
+                    name="form"
+                    #f="ngForm"
+                    (ngSubmit)="f.form.valid && updateUser()"
+                    novalidate>
+                   <!--<div *ngFor="let item of userService.admin">-->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" required name="username"
+                             [(ngModel)]="currentUser.username"
+                             minlength="3"
+                             maxlength="20"
+                              #username="ngModel"/>
+                              <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+                                <div *ngIf="username.errors.required"> Nom d'utilisateur est obligatoire!</div>
+                                <div *ngIf="username.errors.minlength">
+                                  Le nom d'utilisateur doit comporter au moins 3 caractères            
+                                </div>
+                                <div *ngIf="username.errors.maxlength">
+                                  Le nom d'utilisateur doit comporter au maximum 20 caractères            
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">adresse E-mail</label>
+                            <input type="text" class="form-control" required name="email" [(ngModel)]="currentUser.email" #email="ngModel" email/>
+                            <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                              <div *ngIf="email.errors.required">email est obligatoire!</div>
+                              <div *ngIf="email.errors.email">
+                                L'e-mail doit être une adresse e-mail valide                              </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Ville</label>
+                            <input type="text" class="form-control" required name="ville" [(ngModel)]="currentUser.ville" #ville="ngModel"/>
+                            <div class="alert-danger" *ngIf="f.submitted && ville.invalid">
+                              <div *ngIf="ville.errors.required">Ville est obligatoire!</div>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Pays</label>
+                            <input type="text" class="form-control" required name="pays" [(ngModel)]="currentUser.pays" #pays="ngModel"
+                            />
+                            <div class="alert-danger" *ngIf="f.submitted && pays.invalid">
+                              <div *ngIf="pays.errors.required">Pays est obligatoire!</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                          </div>
+                        </div>
+                      </div>
+                        </div>
+                      <button  type="submit" class="btn btn-primary pull-right" > Modifier le profil</button>
+                      <div class="alert alert-success" *ngIf="isSuccessful">
+                        Votre modification est réussie!   
+                      </div>
+                  <!--</div>--> 
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+</body>  

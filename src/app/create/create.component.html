@@ -1,0 +1,107 @@
+<div>
+<button mat-raised-button (click)="addItem()">
+    Ajouter nouvelle question
+  </button>
+
+<form [formGroup]="formGroup"  (submit)="onSubmit()" class="col-md-8" style="margin-left: 200px;">
+    <mat-form-field>
+        <input   placeholder="Test Name" formControlName="name" matInput  required>
+        
+    </mat-form-field>
+
+        <mat-form-field>
+        <input type="number"   matInput name="duration"  placeholder="Duration par minute" formControlName="duration" required>
+            <div *ngIf="f.duration.errors?.min" style="color:red">Duration minimum une minute</div>
+        </mat-form-field>
+
+        <mat-form-field>
+        <input type="date" placeholder="Date"    formControlName="dateExamen" matInput required>
+        <div *ngIf="f.dateExamen.hasError('dateValidator')" style="color:red">vous devez préciser une date à partir d'aujourd'hui</div>
+        </mat-form-field>
+    <mat-horizontal-stepper formArrayName="form" [linear]="true">
+        <mat-step  [formGroupName]="i" *ngFor="let customerGroup of getArrayControls(); let i = index" [stepControl]="form.get([i])" >
+            <ng-template matStepLabel>Step {{i + 1}}</ng-template>
+
+
+
+            <mat-form-field>
+  
+                <input placeholder="Question" formControlName="question" matInput  required>
+
+            </mat-form-field>
+
+            <mat-form-field> 
+              <input  placeholder="Option1" formControlName="option1" matInput required>
+           </mat-form-field>
+               
+           <mat-form-field>
+           <input  placeholder="Option 2" formControlName="option2" matInput required>
+        </mat-form-field>
+           <mat-form-field>
+                <input matInput placeholder="Option 3" formControlName="option3" required>
+            </mat-form-field>
+         
+            <mat-radio-group aria-label="Selectionner la bonne reponse" formControlName="answer">
+                <p>Quelle est la bonne reponse ??</p>
+                   
+                <div>
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+
+                </div>
+                <div>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+
+                </div>
+
+                <div>
+                    <mat-radio-button value="3">Option 3</mat-radio-button>
+
+                </div>
+               
+            </mat-radio-group>
+        
+           
+                
+                <mat-form-field>
+                <input type="number" placeholder="Note"  formControlName="noteQuestion" matInput  required>
+               <div  *ngIf="form.controls[i].get('noteQuestion').errors?.min " style="color:red">
+               <div>Note doit etre strictement positive</div></div> 
+               <div  *ngIf="form.controls[i].get('noteQuestion').errors?.max" style="color:red">
+                <div>Note ne doit pas passer 5</div></div> 
+            </mat-form-field>
+            
+
+            <mat-form-field appearance="fill" >
+                <mat-label >Select an option</mat-label>
+                <mat-select [(value)]="selected" formControlName="name">
+                  <mat-option>None</mat-option>
+                  <mat-option value="module1">Module1</mat-option>
+                  <mat-option value="module2">Module2</mat-option>
+                  <mat-option value="module3">Module3</mat-option>
+                  <mat-option value="module4">Module4</mat-option>
+                  <mat-option value="module5">Module5</mat-option>
+                  <mat-option value="Examen de certification">Examen de certification</mat-option>
+
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button type="button"  mat-button matStepperPrevious>Précédant</button>
+                <button type="button" mat-button matStepperNext >Suivant</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>C'est Bon ??.</p>
+            <div>
+                <button mat-button matStepperPrevious>précédant</button>
+                <button type="submit" mat-raised-button color="primary"  >Valider</button>     
+                <button type="submit" (click)="menu()" mat-raised-button color="primary" > Dashborad</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+    
+
+</form>
+
+ 

@@ -1,0 +1,323 @@
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a class="simple-text logo-normal">
+        BMCAF
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/menu' routerLinkActive='active' >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/profil-admin' routerLinkActive='active'>
+              <i class="material-icons">person</i>
+              <p>Profil admin</p>
+            </a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" routerLink='/table-profil' routerLinkActive='active' >
+              <i class="material-icons">content_paste</i>
+              <p>Liste des apprenants</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/table-moderator' routerLinkActive='active' >
+              <i class="material-icons">content_paste</i>
+              <p>Liste des Tuteurs</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/create-badge' routerLinkActive='active' >
+              <i class="material-icons">content_paste</i>
+              <p>Badges</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" routerLink='/chat' routerLinkActive='active' >
+              <i class="material-icons">
+                question_answer
+             
+              </i>
+                <p>Chat</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;">Liste des apprenants</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li style="font-weight: bold;">{{currentUser.username}}</li>  
+
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="/profil-admin">Profil</a>
+                  <div class="dropdown-divider"></div>
+                  <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+      <ng-template #mail>
+    <form [formGroup]="angForm" novalidate >
+      <div class="modal-header">
+        <h4 class="modal-title pull-left"> Envoyer un e-mail</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+       <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="form__top">
+      <!--    <div class="form__left">
+         
+          <div class="form__group">
+            <input class="form__input form__input--email" type="email"  formControlName="to" placeholder="to" #to>
+          </div>
+          <div *ngIf="angForm.controls['to'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['text'].errors.required">
+              email is required.
+            </div>
+          </div>
+        </div>-->
+      <div class="form__group">
+          <input class="form__input form__input--name" type="text"   formControlName="subject" placeholder="subject" #subject>
+        </div>
+        <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['subject'].errors.required">
+            subject is required.
+          </div>
+        </div>
+        <div class="form__right">
+          <div class="form__group">
+            <textarea class="form__input form__input--textarea" placeholder="Message" formControlName="text"  #text
+              rows="3"></textarea>
+          </div>
+          <div *ngIf="angForm.controls['text'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['text'].errors.required">
+              message is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <flash-messages></flash-messages>
+      <div class="form__down">
+        <div class="form__group">
+          <button  (click)="sendMail(subject.value, text.value)" [disabled]="angForm.pristine || angForm.invalid"  class="form__input form__input--submit btn btn-primary" name="submit" type="submit" value="SEND MESSAGE">SEND MESSAGE
+          </button>
+        </div>
+      </div>
+      </div>
+    </form>
+   
+  </ng-template>
+
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+     
+                <button (click)="openModalmail(mail)" style="margin-left:700px ;margin-top: 0px;margin-bottom: 0px; background-color:rgb(255, 255, 255);border: white; color:black" class="btn" >
+                
+                  <span class="material-icons"  >
+                    mail
+                    </span>                     Envoyer un e-mail à tous les aprenants
+                    </button>
+                  </div>
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Liste des apprenants</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                        Username
+                        </th>
+                        <th>
+                           Adresse E-mail
+                        </th>
+                        <th>
+                          Ville
+                        </th>
+                        <th>
+                          Pays
+                        </th>
+                        <th>
+                          Action
+                        </th>
+                        
+
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of userService.users">
+                          <td>
+                            {{item.username}}
+                          </td>
+                          <td >{{item.email}}
+                          </td>
+                          <td >{{item.ville}}
+                           
+                          </td>
+                          <td >
+                            {{item.pays}}
+                          </td>
+                          <td >
+                            <button style="background-color: white;border: white;" (click)="openModaledit(edit,users)">
+                            <span class="material-icons" >
+                              edit
+                              </span>
+                            </button>
+                            <button style="background-color: white;border: white;" >
+                              <span class="material-icons" style="color:rgba(255, 8, 0, 0.795) ;" (click)="openModaldelete(delete)">
+                                delete
+                                </span>
+                                </button>
+                              <button style="background-color: white;border: white;" >
+                                  <span class="material-icons"  (click)="openModalUnMail(UnMail)">
+                                    mail
+                                    </span>
+                                    </button>
+                     
+
+                          <ng-template #edit>
+                            <div class="modal-header">
+                              <h4 class="modal-title pull-left"> Modifier Apprenant</h4>
+                              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                             <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                  <label for="username">Username</label>
+                                   <input type="text" class="form-control" required name="username" [(ngModel)]="item.username"/>
+                                   <label for="email">Adresse E-mail</label>
+                                   <input type="text" class="form-control" required name="email" [(ngModel)]="item.email"/>
+                                   <label for="ville">Ville</label>
+                                   <input type="text" class="form-control" required name="ville" [(ngModel)]="item.ville"/>
+                                   <label for="pays">Pays</label>
+                                   <input type="text" class="form-control" required name="pays" [(ngModel)]="item.pays"/>
+                                   <button class="btn btn-primary" type="submit" (click)="updateUser(item.id,item)"> modifier</button>
+                              </form>
+                            </div>
+                          </ng-template>
+                          <ng-template #delete>
+                            <div class="modal-header">
+                              <h4 class="modal-title pull-left"> Supprimer Apprenants</h4>
+                              <button type="button" class="close pull-right" aria-label="Close" (click)="modeldelete.hide()">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" >
+                              <p>Etes-vous sûr que vous voulez supprimer cet utilisateur?</p>
+                              <button class="btn btn-primary  " (click)="modeldelete.hide()" >non</button>
+                              <button class="btn btn-danger  " (click)="deleteUser(item.id)">oui</button>
+                            </div>
+                          </ng-template>
+                              <ng-template #UnMail>
+                                <form [formGroup]="angForm" novalidate >
+                                  <div class="modal-header">
+                                    <h4 class="modal-title pull-left"> Envoyer un e-mail</h4>
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef1.hide()">
+                                   <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                  <div class="form__top">
+            
+                                  <div class="form__group">
+                                      <input class="form__input form__input--name" type="text"   formControlName="subject" placeholder="subject" #subject>
+                                    </div>
+                                    
+                                    <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)" class="alert alert-danger">
+                                      <div *ngIf="angForm.controls['subject'].errors.required">
+                                        subject is required.
+                                      </div>
+                                    </div>
+                                    <div class="form__right">
+                                      <div class="form__group">
+                                        <textarea class="form__input form__input--textarea" placeholder="Message" formControlName="text"  #text
+                                          rows="3"></textarea>
+                                      </div>
+                                      <div *ngIf="angForm.controls['text'].invalid && (angForm.controls['text'].dirty || angForm.controls['text'].touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="angForm.controls['text'].errors.required">
+                                          message is required.
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <flash-messages></flash-messages>
+                                  <div class="form__down">
+                                    <div class="form__group">
+                                      <button  (click)="sendUnMail(item.email,subject.value, text.value)" [disabled]="angForm.pristine || angForm.invalid"  class="form__input form__input--submit btn btn-primary" name="submit" type="submit" value="SEND MESSAGE">SEND MESSAGE
+                                      </button>
+                                    </div>
+                                  </div>
+                                  </div>
+                                </form>
+                               
+                              </ng-template>
+                          
+
+
+
+
+
+
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+    </body>

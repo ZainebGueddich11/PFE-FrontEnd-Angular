@@ -1,0 +1,223 @@
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+<body   style="background-color: white;">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+        <div class="logo"><a  class="simple-text logo-normal">
+            BMCAF
+          </a></div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item   ">
+              <a class="nav-link" routerLink='/menu2' routerLinkActive='active' >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/profil-tuteur' routerLinkActive='active'>
+                <i class="material-icons">person</i>
+                <p>Profil </p>
+              </a>
+            </li>
+        
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/liste-utilisateur-mod' routerLinkActive='active'>
+                <i class="material-icons">content_paste</i>
+                <p>Liste des utilisateurs</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink='/cours-mod' routerLinkActive='active'>
+                <i class="material-icons">
+                  style
+                </i>
+                <p>Cours</p>
+              </a>
+            </li>
+       
+           
+            <li class="nav-item active ">
+              <a class="nav-link" routerLink='/chat-tuteur' routerLinkActive='active' >
+                <i class="material-icons">
+                  question_answer
+               
+                </i>
+                  <p>Chat</p>
+              </a>
+            </li>
+            
+      </ul>
+        </div>
+      </div>
+      <div class="main-panel" >
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <a class="navbar-brand" href="javascript:;" style="font-weight: bolder; color:#301934;font-size:20px;text-align: center center;">Chat</a>
+            </div>
+        
+          <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav"> 
+                <li style="font-weight: bold;">{{currentUser2.username}}</li>                
+                <li class="nav-item dropdown active " >
+                  <a class="nav-link" href="javascript:;" k id="navbarDropdownProfile"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="d-lg-none d-md-block">
+                      Account
+                    </p>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile" >
+                    <a class="dropdown-item" href="/profil-tuteur" >Profil</a>
+                    <div class="dropdown-divider"></div>
+                    <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          
+         
+          </div>
+        </nav>
+        <div class="content" style="background-color: white;">
+          <div class="container-fluid">
+    
+                    
+                  
+                              
+<div *ngIf="error" (click)="disable_error()" class="alert">
+
+
+    {{error}}
+
+
+</div>
+
+
+
+
+<div class="container clearfix"  >
+    <div class="people-list" id="people-list">
+
+        <ul class="list">
+            <li *ngFor="let u of users" (click)="changeUser(u)" [ngClass]="{'active': currentUser.id === u.id  , 'has_message' : u.has_message }" class="clearfix list-item">
+                <img class="avatar" src="https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="avatar" />
+                <div class="about">
+                    <div class="name">{{u.username}}</div>
+                    <div class="status">
+                        <i class="fa fa-circle online"></i> en ligne
+                    </div>
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="chat" style="position: absolute;left:500px;"> 
+        <div class="chat-header clearfix">
+            <img src="https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="avatar" />
+
+            <div class="chat-about">
+                <div class="chat-with">{{currentUser?.username}}</div>
+                <div class="chat-num-messages">{{currentUser?.email}}</div>
+            </div>
+
+        </div>
+        <!-- end chat-header -->
+
+        <div class="chat-history" > 
+            <ul>
+
+
+
+                <li *ngFor="let data of output">
+                    <div [ngClass]="{ 'align-right' : data.id_user != currentUser.id  }" class="message-data">
+                        <span *ngIf="data.id_user != currentUser.id " class="message-data-time">{{data.timestamp  | date:' dd/MM/YYYY HH:mm'}}</span>
+                        <span class="message-data-name">
+                            <span *ngIf="data.id_user == currentUser.id ">{{  currentUser.username }}</span><br>
+                        <span *ngIf="data.id_user != currentUser.id ">Vous</span>
+
+                        </span>
+                        <span *ngIf="data.id_user == currentUser.id " class="message-data-time">{{data.timestamp  | date:' dd/MM/YYYY HH:mm'}}</span>
+                    </div>
+                    <div [ngClass]="{ 'my-message' : data.id_user == currentUser.id  , 'other-message float-right' : data.id_user != currentUser.id }" class="message ">
+                        {{data.message}}
+                    </div>
+                </li>
+
+
+
+
+
+                <li *ngIf="feedback">
+
+                    <i class="fa fa-circle online"></i>
+                    <i class="fa fa-circle online" style="color: #AED2A6"></i>
+                    <i class="fa fa-circle online" style="color:#dadee9"></i>
+                </li>
+
+            </ul>
+
+        </div>
+        <!-- end chat-history -->
+
+        <div class="chat-message clearfix" >
+            <textarea name="message-to-send" [(ngModel)]="message" (keypress)="messageTyping()" id="message-to-send" placeholder="Ecrire votre message" rows="1"></textarea>
+
+
+
+            <button (click)="sendMessage()">Envoyer</button>
+
+        </div>
+        <!-- end chat-message -->
+
+    </div>
+    <!-- end chat -->
+
+</div>
+<!-- end container -->
+
+   
+            
+        
+              </div>
+              </div>
+        </div>
+        </div>
+        <!-- End Navbar -->                  
+  </body>
+  

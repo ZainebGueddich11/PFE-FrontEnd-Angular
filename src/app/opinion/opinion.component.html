@@ -1,0 +1,143 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a  class="simple-text logo-normal">
+          BMCAF
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item   ">
+            <a class="nav-link" routerLink='/menu1' routerLinkActive='active' >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/profil-utilisateur' routerLinkActive='active'>
+              <i class="material-icons">person</i>
+              <p>Profil </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink='/cours' routerLinkActive='active'>
+              <i class="material-icons">
+                style
+              </i>
+              <p>Cours</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink='/opinion' routerLinkActive='active'>
+              <i class="material-icons">
+                style
+              </i>
+              <p>Remplir enquête</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" style="background-color: white;">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+          </div>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">        
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="/profil-utilisateur">Profil</a>
+                  <div class="dropdown-divider"></div>
+                  <a href class="dropdown-item" (click)="logout()">Deconnexion</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="content" style="margin-bottom: 200px;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+            
+
+<div *ngIf="!isSuccessful"
+ style="width:700px ;height:500px;border: 1px solid black; margin-right: 50px;padding-bottom:150px;margin-left: 200px; position: absolute;right:200px;">
+<div style="margin-left: 100px;">
+  <div style="margin-top:50px ;">
+<strong><p style="font-weight: bold; color:brown">Vous êtez satisfait de notre application ?</p></strong>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="question1" >
+    <mat-radio-button value="nonsatisfait" style="text-decoration-color:black;">Non satisfait</mat-radio-button><br>
+    <mat-radio-button value="neutre">Neutre</mat-radio-button><br>
+    <mat-radio-button value="satisfait"> satisfait</mat-radio-button><br>
+  </mat-radio-group>
+</div><br>
+  <div >
+  <p style="font-weight: bold;color:brown">Les cours globalement sont-ils compréhensible ?</p>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="question2">
+    <mat-radio-button value="oui">oui</mat-radio-button><br>
+    <mat-radio-button value="non">non</mat-radio-button><br>
+  </mat-radio-group>
+</div><br>
+<div>
+<p style="font-weight: bold;color:brown">Les objectifs de la formation ont été atteints?</p>
+  <mat-radio-group aria-label="Select an option"  [(ngModel)]="question3">
+      <mat-radio-button value="Pas d’accord">Pas d’accord </mat-radio-button><br>
+      <mat-radio-button value="Tout à fait d’accord"> Tout à fait d’accord </mat-radio-button><br>
+      <mat-radio-button value=" Plutôt d’accord"> Plutôt d’accord </mat-radio-button><br>
+    </mat-radio-group><br>
+  </div> 
+    <button class="btn btn btn-block" (click)="onSubmit()" style="background-color: brown; width: 200px; text-align: center;margin-left: 130px;position:absolute; top: 450px; right:50px" >Envoyer votre enquête</button>
+ </div>
+ 
+
+</div>
+ <div class="alert alert-success" *ngIf="isSuccessful">
+  votre enquête envoyée !      </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              
+            </div>
+            </div>
+            </div>
+            </div>
+      </div>
+      </div>
+      <!-- End Navbar -->                  
+</body>
+
+
+
+
+
+
+
+
+
+
+
